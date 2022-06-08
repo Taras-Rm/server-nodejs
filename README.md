@@ -1,6 +1,8 @@
 # server-nodejs
+Basic to-do list created on Node.js)
 
 ## Start server
+(add .env file before start)
 `npm run dev`
 
 ## Endpoints
