@@ -1,12 +1,22 @@
-import Router from "express"
-import PostController from "./PostController.js"
+const Router = require("express");
+const TodoController = require("./controllers/TodoController.js")
+const UserController = require("./controllers/UserController.js")
 
 const router = new Router()
 
-router.post("/posts", PostController.create)
-router.get("/posts", PostController.getAll)
-router.get("/posts/:id", PostController.getOne)
-router.put("/posts", PostController.update)
-router.delete("/posts/:id", PostController.delete)
+router.post("/user", UserController.create)
+router.get("/user/:id", UserController.get)
 
-export default router
+//router.get("/todo", PostController.getAll)
+//router.get("/todo/:id", PostController.getOne)
+//router.put("/todo", PostController.update)
+//router.delete("/todo/:id", PostController.delete)
+router.post("/todo", TodoController.create)
+router.put("/todo", TodoController.update)
+router.delete("/todo/:id", TodoController.delete)
+router.get("/todo/:user_id", TodoController.getAll)
+
+
+
+
+module.exports = router

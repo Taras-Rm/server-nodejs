@@ -1,16 +1,17 @@
-import express from "express";
-import mongoose from "mongoose";
-import router from "./router.js";
-import fileUpload from "express-fileupload"
+const express = require("express");
+const mongoose = require("mongoose");
+const router = require("./router.js");
+const fileUpload = require("express-fileupload");
+require('dotenv').config();
 
-const DB_URL =
-  "mongodb+srv://user:root@cluster0.1zdbi.mongodb.net/?retryWrites=true&w=majority";
 
-const PORT = 3000;
+const DB_URL = process.env.DB_URL;
+
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
-app.use(fileUpload({}))
+app.use(fileUpload())
 app.use(express.json());
 app.use("/api", router)
 
